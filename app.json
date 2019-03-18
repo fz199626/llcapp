@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/order/order",
+    
+    "pages/goods/goods",
+    "pages/address/address",
+    "pages/pay/pay",
+    "pages/addAddress/addAddress",
+    "pages/personal/personal",
+    "pages/feedBack/feedBack",
+    "pages/card/card",
+    "pages/map/map",
+    "pages/remarks/remarks",
+    "pages/problem/problem",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "灵灵柒",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "iconPath": "pages/images/n-order.png",
+        "selectedIconPath": "pages/images/n-ordering.png",
+        "pagePath": "pages/goods/goods",
+        "text": "商品"
+      },
+      {
+        "iconPath": "pages/images/n-bill.png",
+        "selectedIconPath": "pages/images/n-billing.png",
+        "pagePath": "pages/order/order",
+        "text": "订单"
+      },
+      {
+        "iconPath": "pages/images/n-mine.png",
+        "selectedIconPath": "pages/images/n-mineing.png",
+        "pagePath": "pages/personal/personal",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置定位"
+    }
+  }
+}

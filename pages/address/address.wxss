@@ -1,0 +1,44 @@
+/* pages/address/address.wxss */
+.addAddress{
+  width: 100%;
+  background: #eee;
+  text-align: center;
+  padding: 12px 10px;
+  font-size: 15px;
+  color: #666;
+}
+.addressList{
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+.addressLi{
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.li-top{
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.li-top-con{
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+.li-top-con-name{
+  color: #333;
+}
+.li-top-con-sex{
+  font-size: 12px;
+  margin-right: 10px;
+}
+.editAddress image{
+  width: 30px;
+  height: 25px;
+  margin-left: 10px
+}
+.li-bottom{
+  display: flex;
+  justify-content: space-between;
+}

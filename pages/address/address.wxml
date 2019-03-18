@@ -1,0 +1,25 @@
+<!--address.wxml-->
+<view class='address'>
+  <view class='addAddress' bindtap="addAddress">添加地址</view>
+  <view class='addressList'>
+    <view class='addressLi' wx:for="{{addressData}}" wx:key="{{index}}" id='{{index}}' bindtap='{{isPay?"selectAddress":""}}'>
+      <view class='li-top'>
+        <view>
+          <view class='li-top-con'>
+            <text class='li-top-con-name'>{{item.name}}</text>
+            <text class='li-top-con-sex'>({{item.sex == "0" ? "先生" : "女士"}})</text>
+            <text>{{item.tel}}</text>
+          </view>
+          <view>{{item.address_info}}{{item.door_plate}}</view>
+        </view>
+        <view class='editAddress' bindtap="editAddress" id='{{index}}'>
+          <image src='../images/editAddress.png'></image>
+        </view>
+      </view>
+      <view class='li-bottom'>
+        <view id='{{index}}'>{{item.is_default == '1' ? "[默认]" : "非默认地址"}}</view>
+        <view bindtap="delAddress" id='{{index}}'>删除</view>
+      </view>
+    </view>
+  </view>
+</view>

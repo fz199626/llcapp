@@ -1,0 +1,32 @@
+<!--personal.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称</button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view>
+        <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+        <text class="grade">普通会员</text>      
+      </view>
+    </block>
+  </view>
+  <view class='banner' bindtap='member'>
+    <image src="../images/m-banner.png"></image>
+  </view>
+  <view class='content'>
+    <view class='integral'>
+      <view>0</view>
+      <text>积分</text>
+    </view>
+    <view class='coupon' bindtap='goCard'>
+      <view>0</view>
+      <text>优惠卷</text>
+    </view>
+  </view>
+  <view class='cell-list'>
+    <van-cell title="收货地址" is-link url="../address/address"/>
+    <van-cell title="常见问题" is-link url="../problem/problem"/>
+    <van-cell title="联系商家" is-link bindtap='phoneCall'/>
+    <van-cell title="问题反馈" is-link url="../feedBack/feedBack"/>
+  </view>
+</view>

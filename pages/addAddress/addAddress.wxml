@@ -1,0 +1,16 @@
+<!--pages/addAddress/addAddress.wxml-->
+<van-cell-group  wx:for="{{editAddress}}" wx:key="index">
+  <van-field value="{{item.name}}" label="姓名" placeholder="请输入姓名" title-width='70px' clearable border="{{fales}}" bind:change='name'/>
+  <view class='sex'>
+    <view class='sexView {{item.sex=="0"?"sexed":""}}' bindtap='man'>先生</view>
+    <view class='sexView {{item.sex=="0"?"":"sexed"}}' bindtap='woman'>女士</view>
+  </view>
+  <van-field value="{{item.tel}}" label="手机号" placeholder="请输入手机号" title-width='70px' clearable bind:change='tel'/>
+  <van-field value="{{item.address_info}}" label="地址" placeholder="请输入地址" title-width='70px' clearable  is-link disabled bindtap='goMap'/>
+  <van-field value="{{item.door_plate}}" label="门牌" placeholder="请输入楼层" title-width='70px' clearable bind:change='door_plate'/>
+  <view class='isDefault'>
+    <view>设为默认地址</view>
+    <van-switch checked="{{item.is_default == '1'?true:false}}" bind:change="isDefault" inactive-color="#efefef" active-color="#07c160" size="20px"/>
+  </view>
+</van-cell-group>
+<view class='button' bindtap='editBtn'>确 认</view>

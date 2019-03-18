@@ -1,0 +1,9 @@
+<!--map.wxml-->
+<view class="map_container">
+  <view class="section">
+    <input bindinput="bindInput" placeholder="搜索" focus="true" />
+  </view>
+  <view bindtouchstart="bindSearch" data-index="{{index}}" class="text_box" wx:for="{{tips}}" wx:key="{{index}}" wx:for-item="i">
+    {{i.name}}
+  </view>
+</view>

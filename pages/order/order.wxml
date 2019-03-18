@@ -1,0 +1,41 @@
+<!--order.wxml-->
+<view class='order'>
+  <view class='order-single' wx:for="{{orderList}}" wx:key="{{index}}">
+    <view class='selfTaking' wx:if="{{item.way == 1}}">
+      <view>凭订单号前往取单</view>
+      <view class='status'>{{item.status}}</view>
+    </view>
+    <view class='c'>
+      <view class='takeOut {{item.way == 1?"":"takeOuts"}}'>
+        <view>订单号：{{item.order_num}}</view>
+        <view class='status' wx:if="{{item.way == 2}}">{{item.status}}</view>
+      </view>
+      <view class='good-list'>
+        <view class='good-list-li' wx:for="{{item.orderDetails}}" wx:key="{{index}}">
+          <view class='good-list-li-left'>
+            <image src='{{item.goods_info.image}}'></image>
+            <view>
+              <view class='good-list-li-left-name'>{{item.goods_info.name}}</view>
+              <!-- <view class='good-list-li-left-standard'>{{item.goods_info.name}}</view> -->
+            </view>
+          </view>
+          <view class='good-list-li-right'>
+            <text class='good-list-li-right-num'>x{{item.num}}</text>
+            <text>￥{{item.goods_info.price}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='distribution-fee'>
+        <view>配送费</view>
+        <view>￥{{item.distribution_fee}}</view>
+      </view>
+      <view class='busines'>
+        <view>{{item.create_time}}</view>
+        <view class='busines-right'>
+          <text class='busines-right-num'>x{{item.num}}</text>
+          <text>￥{{item.total_price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

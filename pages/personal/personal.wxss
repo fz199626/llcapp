@@ -1,0 +1,63 @@
+/* pages/personal/personal.wxss */
+.container{
+  width: 100%;
+}
+.userinfo {
+  width: 100%;
+  height: 130px;
+  display: flex;
+  background: #eee;
+}
+.userinfo-avatar {
+  width: 64px;
+  height: 64px;
+  margin: 20px 10px 20px 20px;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  margin-top: 25px;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+.grade{
+  background: #000;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.banner{
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  margin: 15px 0 10px;
+}
+.banner image{
+  height: 100%;
+}
+.content{
+  width: 80%;
+  padding: 0 10%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.integral,.coupon{
+  flex: 1;
+  text-align: center;
+}
+.integral view,.coupon view{
+  font-size: 28px;
+}
+.integral text,.coupon text{
+  font-size: 15px;
+}
+
+.cell-list{
+  width: 100%;
+}
+.cell-list .van-cell{
+  padding: 10px 25px;
+}

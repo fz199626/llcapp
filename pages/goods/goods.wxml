@@ -1,0 +1,97 @@
+<!--goods.wxml-->
+<view  class="goods">
+  <scroll-view scroll-y="true" class="left">
+    <view class='tabList' wx:for="{{dataList}}" wx:key="{{index}}">
+      <view bindtap="tab" data-id='good{{item.id}}' data-index='{{index}}' class='tabLi {{index==navActive?"Active":""}}'>{{item.name}}</view> 
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y="true" scroll-into-view='{{contentActive}}' scroll-with-anmiation='true' bindscroll='onScroll' class='right'>
+    <!-- <view class='good-banner'>
+      <image src='./../images/p-bj.png'></image>
+    </view> -->
+    <view class='goodList' id='good{{item.id}}' wx:for="{{dataList}}" wx:key="{{index}}">
+      <view class='goodList-title'>{{item.name}}</view>
+      <view class='good' wx:for="{{item.goods}}" wx:key="item.id">
+        <view class='good-img'>
+          <image src="{{item.image}}"></image>
+        </view>
+        <view class='good-cont'>
+          <view class='name'>{{item.name}}</view>
+          <view class='details'>{{item.describe}}</view>
+          <view class='buy'>
+            <view class='price' wx:if='{{item.preferential_price}}'>
+              <text>￥{{item.preferential_price}}</text>
+              <text class='scribing'>￥{{item.price}}</text>
+            </view>
+            <view class='price' wx:else>￥{{item.price}}</view>
+            <view class='buyBtn' bindtap='isStandardShowBtn' data-good='{{item}}'>选规格</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class='shade {{isStandardShow?"show":"hide"}}' bindtap='isStandardShowBtn'></view>
+<view class='standard-popup {{isStandardShow?"show":"hide"}}'>
+  <view class='standard-top'>
+    <view class='standard-top-left' wx:for="{{good}}" wx:key='{{index}}'>
+      <view class='standard-img'>
+        <image src='{{item.image}}'></image>
+      </view>
+      <view class='standard-top-left-content'>
+        <view class='standard-title'>{{item.name}}</view>
+        <view class='standard-describe'>{{item.describe}}</view>
+        <view class='standard-price' wx:if='{{item.preferential_price}}'>
+          <text>￥{{item.preferential_price}}</text>
+          <text class='scribing'>￥{{item.price}}</text>
+        </view>
+        <view class='standard-price' wx:else>￥{{item.price}}</view>
+      </view>
+    </view>
+    <view class='hide-btn' bindtap='isStandardShowBtn'>
+      <image src='./../images/close.png'></image>
+    </view>
+  </view>
+  <!-- <view class='standard-select'>
+    <view wx:for="{{items}}" wx:key='{{index}}'>
+      <text class='standard-select-title'>{{item.title}}</text>
+      <radio-group bindchange="radioChange" data-id='{{index}}'>
+        <label class="radio" wx:for="{{item.item}}" wx:key='{{index}}'>
+          <radio value="{{item.name}}" checked="{{item.checked}}"/>
+          <text class='{{item.checked?"checked":""}}'>{{item.value}}</text>
+        </label>
+      </radio-group>
+    </view>
+  </view> -->
+  <view class='standard-bottom' bindtap='selectBtn' id='{{good[0].id}}'>选好了</view>
+</view>
+
+<view class='good-bottom'>
+  <view class='cart'>
+    <view class='cart-left' bindtap='isCartShadeShowBtn'>
+      <image src='../images/cart-icon.png'></image>
+      <text class='cart-left-text'>购物车</text>
+      <text class='num'>{{cartData.num}}</text>
+    </view>
+    <view class='cart-right'>
+      <view>￥{{cartData.total}}</view>
+      <view class='settlement' bindtap='goPay'>结算</view>
+    </view>
+  </view>
+</view>
+<view class='shade {{isCartShadeShow?"show":"hide"}}' bindtap='isCartShadeShowBtn'></view>
+<view class='cart-popup {{isCartShadeShow?"show":"hide"}}'>
+  <view class='cart-good' wx:for="{{cartData.items}}" wx:key="index">
+    <view>
+      <view>{{item.goods.name}}</view>
+      <!-- <view class='cart-good-standard'>{{item.name}}</view> -->
+    </view>
+    <view>
+      <text class='cart-good-price'>￥{{item.goods.price}}</text>
+      <text class='reduce' bindtap='reduce' id="{{item.goods.id}}">-</text>
+      <text class='cart-good-num'>{{item.quantity}}</text>
+      <text class='add' bindtap='add' id="{{item.goods.id}}">+</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+{
+  "name": "llcapp",
+  "version": "1.0.0",
+  "description": "灵灵柒奶茶店",
+  "main": "app.js",
+  "dependencies": {
+    "vant-weapp": "^0.5.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "XuZhiWei",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fz199626/llcapp.git"
+  },
+  "keywords": [
+    "灵灵柒，奶茶，饮品"
+  ],
+  "bugs": {
+    "url": "https://github.com/fz199626/llcapp/issues"
+  },
+  "homepage": "https://github.com/fz199626/llcapp#readme"
+}

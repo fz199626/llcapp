@@ -1,0 +1,5 @@
+/* pages/problem/problem.wxss */
+.caption-wrap{
+  color: #666;
+  font-size: 15px;
+}

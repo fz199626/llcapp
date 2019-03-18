@@ -1,0 +1,3 @@
+<!--pages/remarks/remarks.wxml-->
+<textarea value='{{remarks}}' placeholder='请输入……' maxlength="60" bindinput='remarks'></textarea>
+<view class='button' bindtap='remarksBtn'>确 认</view>

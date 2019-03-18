@@ -1,0 +1,39 @@
+/* pages/feedBack/feedBack.wxss */
+textarea{
+  width: 82%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 20px auto;
+  font-size: 15px;
+  padding: 10px;
+  color: #444;
+  line-height: 30px;
+}
+.tel-input{
+  width: 84%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+.tel-input label{
+  font-size: 16px;
+}
+.tel-input input{
+  border: 1px solid #ccc;
+  width: 70%;
+  border-radius: 10px;
+  padding: 5px 2%;
+  color: #444;
+}
+.button{
+  width: 80%;
+  margin: 30px auto;
+  color: #fff;
+  font-size: 16px;
+  background: #0ebf38;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px 0;
+}

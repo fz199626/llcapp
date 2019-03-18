@@ -1,0 +1,39 @@
+/* pages/card/card.wxss */
+.card-contenter{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.card-contenter .van-tabs{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.card-contenter .van-tabs .van-tabs__content{
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+}
+.card{
+  background: #eee;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.noCard{
+  text-align: center;
+  margin-top: 150px;
+  color: #ccc;
+  font-size: 15px;
+}
+.van-tabs__scroll--line{
+  border-bottom: 1px solid #eee;
+}

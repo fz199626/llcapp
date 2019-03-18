@@ -1,0 +1,74 @@
+<!--pay.wxml-->
+<view class='pay-contenter'>
+  <view class='pay-content'>
+    <view class='pay-top'>
+      <view class='pay-top-left'>
+        <view>国顺东路店</view>
+        <view>国顺东路800号西楼2楼007店</view>
+      </view>
+      <view class='pay-top-right'>
+        <text class='{{isTakeOut?"":"selected"}}' bindtap='selfTaking'>到店\n自取</text>
+        <text class='{{isTakeOut?"selected":""}}' bindtap='takeOut'>外卖\n配送</text>
+      </view>
+    </view>
+
+    <view class='pay-address' wx:if='{{isTakeOut}}'>
+      <view wx:if='{{orderAddress[0]}}'>
+        <view wx:for="{{orderAddress}}" wx:key="{{index}}">
+          <view class='pay-address-top'>{{item.address_info}}{{item.door_plate}}</view>
+          <view class='pay-address-bottom'>
+            <view>收货人：{{item.name}}  {{item.tel}}</view>
+            <view bindtap='selecAddress'>
+              <image src='../images/editAddress.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:else bindtap='selecAddress'>添加地址</view>
+    </view>
+
+    <view class='pay-good'>
+      <view class='good-list'>
+        <view class='good-list-li' wx:for="{{payData.order_list.items}}" wx:key="{{index}}">
+          <view class='good-list-li-left'>
+            <image src="{{item.goods.image}}"></image>
+            <view>
+              <view class='good-list-li-left-name'>{{item.goods.name}}</view>
+              <view class='good-list-li-left-standard'>{{item.goods.c}}</view>
+            </view>
+          </view>
+          <view class='good-list-li-right'>
+            <text class='good-list-li-right-num'>x{{item.quantity}}</text>
+            <text>￥{{item.goods.price}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='distribution-fee'>
+        <view>配送费</view>
+        <view>￥{{payData.fee}}</view>
+      </view>
+      <view class='busines'>
+        <view bindtap='phoneCall'>联系商家</view>
+        <view class='good-list-li-right'>
+            <text class='good-list-li-right-num'>x{{payData.order_list.num}}</text>
+            <text class='payDataTotal'>￥{{payData.order_list.total}}</text>
+          </view>
+      </view>
+    </view>
+
+    <view class='coupon'>
+      <view>优惠券</view>
+      <view class='coupon-right'>选择红包</view>
+    </view>
+
+    <view class='remarks' bindtap='goRemarks'>
+      <view>备注</view>
+      <view class='remarks-right'>{{remarks}}</view>
+    </view>
+  </view>
+
+  <view class='pay-bottom'>
+    <view class='pay-price'>￥{{payData.order_list.total}}</view>
+    <view class='pay' bindtap='pay'>支付</view>
+  </view>
+</view>

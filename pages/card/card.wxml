@@ -1,0 +1,24 @@
+<!--pages/card/card.wxml-->
+<van-tabs class='card-contenter' bind:change='cardTab' bind:click="cardTab" swipeable>
+  <van-tab title="未使用">
+    <!-- <view class='card'>
+      <view>1</view>
+      <view>1</view>
+    </view> -->
+    <view class='noCard'>暂无优惠券</view>
+  </van-tab>
+  <van-tab title="已使用" class='b'>
+    <!-- <view class='card'>
+      <view>2</view>
+      <view>2</view>
+    </view> -->
+    <view class='noCard'>暂无优惠券</view>
+  </van-tab>
+  <van-tab title="已过期">
+    <!-- <view class='card'>
+      <view>3</view>
+      <view>3</view>
+    </view> -->
+    <view class='noCard'>暂无优惠券</view>
+  </van-tab>
+</van-tabs>
