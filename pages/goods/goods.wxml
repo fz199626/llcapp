@@ -1,14 +1,18 @@
 <!--goods.wxml-->
-<view  class="goods">
+<view class="goods">
+  <view class='goods-bj'>
+    <image src='/pages/images/goods-bj.png'></image>
+  </view>
   <scroll-view scroll-y="true" class="left">
     <view class='tabList' wx:for="{{dataList}}" wx:key="{{index}}">
       <view bindtap="tab" data-id='good{{item.id}}' data-index='{{index}}' class='tabLi {{index==navActive?"Active":""}}'>{{item.name}}</view> 
     </view>
   </scroll-view>
   <scroll-view scroll-y="true" scroll-into-view='{{contentActive}}' scroll-with-anmiation='true' bindscroll='onScroll' class='right'>
-    <!-- <view class='good-banner'>
-      <image src='./../images/p-bj.png'></image>
-    </view> -->
+    <view class='good-banner'>
+      <image src='/pages/images/goods-banner1.jpg'></image>
+      <image src='/pages/images/goods-banner2.jpg'></image>
+    </view>
     <view class='goodList' id='good{{item.id}}' wx:for="{{dataList}}" wx:key="{{index}}">
       <view class='goodList-title'>{{item.name}}</view>
       <view class='good' wx:for="{{item.goods}}" wx:key="item.id">
@@ -24,7 +28,15 @@
               <text class='scribing'>￥{{item.price}}</text>
             </view>
             <view class='price' wx:else>￥{{item.price}}</view>
-            <view class='buyBtn' bindtap='isStandardShowBtn' data-good='{{item}}'>选规格</view>
+            <view class='c'>
+              <view wx:for="{{cartData.items}}" wx:key="{{index}}" wx:for-item="good" wx:if='{{good.goods.id==item.id}}'>
+                <text class='reduce' bindtap='reduce' id="{{good.goods.id}}">-</text>
+                <text class='cart-good-num'>{{good.quantity}}</text>
+              </view>
+              <button wx:if="{{!hasUserInfo && canIUse}}" class='add' open-type="getUserInfo" bindgetuserinfo="getUserInfo">+</button>
+              <text wx:else class='add' bindtap='isStandardShowBtn' data-good='{{item}}'>+</text>
+            </view>
+            <!-- <view class='buyBtn' bindtap='isStandardShowBtn' data-good='{{item}}'>选规格</view> -->
           </view>
         </view>
       </view>
@@ -50,7 +62,7 @@
       </view>
     </view>
     <view class='hide-btn' bindtap='isStandardShowBtn'>
-      <image src='./../images/close.png'></image>
+      <image src='/pages/images/close.png'></image>
     </view>
   </view>
   <!-- <view class='standard-select'>
@@ -70,7 +82,7 @@
 <view class='good-bottom'>
   <view class='cart'>
     <view class='cart-left' bindtap='isCartShadeShowBtn'>
-      <image src='../images/cart-icon.png'></image>
+      <image src='/pages/images/cart-icon.png'></image>
       <text class='cart-left-text'>购物车</text>
       <text class='num'>{{cartData.num}}</text>
     </view>
@@ -82,7 +94,7 @@
 </view>
 <view class='shade {{isCartShadeShow?"show":"hide"}}' bindtap='isCartShadeShowBtn'></view>
 <view class='cart-popup {{isCartShadeShow?"show":"hide"}}'>
-  <view class='cart-good' wx:for="{{cartData.items}}" wx:key="index">
+  <view class='cart-good' wx:for="{{cartData.items}}" wx:key="{{index}}">
     <view>
       <view>{{item.goods.name}}</view>
       <!-- <view class='cart-good-standard'>{{item.name}}</view> -->

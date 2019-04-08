@@ -35,7 +35,6 @@ Page({
             'cookie': wx.getStorageSync("sessionid")
           },
           success(res) {
-
             wx.showToast({
               title: `提交成功`,
               success: (res) => {

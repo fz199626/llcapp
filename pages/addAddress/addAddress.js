@@ -60,7 +60,7 @@ Page({
   },
   goMap() { //前往地图选择页面
     wx.navigateTo({
-      url: '../map/map'
+      url: '/pages/map/map'
     })
   },
   door_plate(event) {
@@ -97,11 +97,11 @@ Page({
             success(res) {
               if (that.data.isPay == true) {
                 wx.navigateTo({
-                  url: '../pay/pay?orderAddress=' + res.data.data
+                  url: '/pages/pay/pay?orderAddress=' + res.data.data
                 })
               } else {
                 wx.navigateTo({
-                  url: '../address/address'
+                  url: '/pages/address/address'
                 })
               }
             }

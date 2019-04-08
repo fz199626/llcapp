@@ -1,12 +1,12 @@
 <!--problem.wxml-->
 <van-collapse value="{{ activeNames }}" bind:change="onChange">
-  <van-collapse-item title="有赞微商城" name="1">
-    提供多样店铺模板，快速搭建网上商城
+  <van-collapse-item title="运费说明" name="1">
+    上海全场送，2公里内5元运费，2-3公里内7元运费，超过3公里则按照实际运费的50%收费
   </van-collapse-item>
-  <van-collapse-item title="有赞零售" name="2">
-    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+  <van-collapse-item title="积分获取" name="2" disabled>
+    每消费一元获得一积分，不足一元的按照一元计算
   </van-collapse-item>
-  <van-collapse-item title="有赞美业" name="3" disabled>
+  <van-collapse-item title="灵灵柒加盟" name="3" disabled>
     线上拓客，随时预约，贴心顺手的开单收银
   </van-collapse-item>
 </van-collapse>

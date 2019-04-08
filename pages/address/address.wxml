@@ -13,7 +13,7 @@
           <view>{{item.address_info}}{{item.door_plate}}</view>
         </view>
         <view class='editAddress' bindtap="editAddress" id='{{index}}'>
-          <image src='../images/editAddress.png'></image>
+          <image src='/pages/images/editAddress.png'></image>
         </view>
       </view>
       <view class='li-bottom'>

@@ -19,7 +19,7 @@
           <view class='pay-address-bottom'>
             <view>收货人：{{item.name}}  {{item.tel}}</view>
             <view bindtap='selecAddress'>
-              <image src='../images/editAddress.png'></image>
+              <image src='/pages/images/editAddress.png'></image>
             </view>
           </view>
         </view>
@@ -58,7 +58,7 @@
 
     <view class='coupon'>
       <view>优惠券</view>
-      <view class='coupon-right'>选择红包</view>
+      <view class='coupon-right'>无红包可用</view>
     </view>
 
     <view class='remarks' bindtap='goRemarks'>

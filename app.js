@@ -40,7 +40,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
-          url: 'http://linlinchi-small.auteng.cn/site/login',
+          url: 'https://linlinchi-small.auteng.cn/site/login',
           method: 'POST',
           data: {
             code: res.code
@@ -75,6 +75,6 @@ App({
   globalData: {
     userInfo: null,
     phoneCall: '18917293695',
-    api: 'http://linlinchi-small.auteng.cn'
+    api: 'https://linlinchi-small.auteng.cn'
   }
 })

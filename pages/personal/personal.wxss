@@ -2,17 +2,31 @@
 .container{
   width: 100%;
 }
+.userinfo-bj{
+  width: 100%;
+  height: 130px;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+}
+.userinfo-bj image{
+  width: 100%;
+  height: 100%;
+}
 .userinfo {
   width: 100%;
   height: 130px;
   display: flex;
   background: #eee;
+  background: rgba(0, 0, 0, 0)
 }
 .userinfo-avatar {
   width: 64px;
   height: 64px;
   margin: 20px 10px 20px 20px;
   border-radius: 50%;
+  line-height: 64px;
+  font-size: 16px;
 }
 .userinfo-nickname {
   margin-top: 25px;

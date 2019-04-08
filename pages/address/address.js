@@ -37,7 +37,7 @@ Page({
   selectAddress(e) { //选择地址给订单页
     let index = e.currentTarget.id
     wx.navigateTo({
-      url: '../pay/pay?orderAddress=' + this.data.addressData[index].id
+      url: '/pages/pay/pay?orderAddress=' + this.data.addressData[index].id
     })
     // let pages = getCurrentPages(); //获取上一个页面信息栈(pay页面)
     // let prevPage = pages[pages.length - 2] //给上一个页面的pay赋值
@@ -50,7 +50,7 @@ Page({
     let index = e.currentTarget.id
     let editAddress = JSON.stringify(this.data.addressData[index])
     wx.navigateTo({
-      url: '../addAddress/addAddress?isPay=' + this.data.isPay +'&editAddress=' + editAddress
+      url: '/pages/addAddress/addAddress?isPay=' + this.data.isPay +'&editAddress=' + editAddress
     })
   },
   setDefault(e) { //设置为默认地址

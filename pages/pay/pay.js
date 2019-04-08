@@ -58,7 +58,7 @@ Page({
   },
   selecAddress(){ //选择地址
     wx.navigateTo({
-      url: '../address/address?isPay=true'
+      url: '/pages/address/address?isPay=true'
     })
   },
   phoneCall() {//拨打商家电话
@@ -69,7 +69,7 @@ Page({
   goRemarks() { //前往备注页面
     let remarks = this.data.remarks;
     wx.navigateTo({
-      url: '../remarks/remarks?remarks=' + remarks
+      url: '/pages/remarks/remarks?remarks=' + remarks
     })
   },
   pay() { //订单支付
@@ -89,7 +89,7 @@ Page({
         distribution_fee: that.data.payData.fee,
         deliveryNo: that.data.payData.deliveryNo,
         order_num: that.data.payData.order_num,
-        remarks: that.data.remarks,
+        remarks: that.data.remarks
       },
       header: {
         'cookie': wx.getStorageSync("sessionid")
@@ -104,9 +104,15 @@ Page({
           'paySign': data.paySign,
           'success'(res) {
             console.log('支付成功！')
+            wx.switchTab({
+              url: '/pages/order/order'
+            })
           },
           'fail'(res) {
             console.log('支付失败！')
+            wx.switchTab({
+              url: '/pages/order/order'
+            })
           }
         })
       }

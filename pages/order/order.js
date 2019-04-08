@@ -16,7 +16,6 @@ Page({
         that.setData({
           orderList: res.data.data.items
         })
-        // console.log(that.data.orderList)
       }
     })
   }

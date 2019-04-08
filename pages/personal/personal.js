@@ -1,29 +1,18 @@
 //personal.js
-//获取应用实例
 const app = getApp()
 
 Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-  },
-  member() {
-    // wx.navigateTo({
-    //   url: '../logs/logs'
-    // })
-  },
-  goCard() {
-    wx.navigateTo({
-      url: '../card/card'
-    })
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   phoneCall() {//拨打商家电话
     wx.makePhoneCall({
       phoneNumber: app.globalData.phoneCall
     })
   },
-  onLoad: function () {
+  onLoad() {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -51,8 +40,8 @@ Page({
       })
     }
   },
-  getUserInfo: function (e) {
-    console.log(e)
+  getUserInfo(e) {
+    console.log(e.detail.userInfo)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

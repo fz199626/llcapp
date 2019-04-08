@@ -9,9 +9,10 @@ Page({
     heightArr: [],
     isCartShadeShow: false,
     isStandardShow: false,
-    cartData: [],
-    // totalNum: 0,
-    // totalPrice: 0,
+    cartData: {
+      "num": "0",
+      "total": 0
+    },
     // items: [
     //   {
     //     title: '大小',
@@ -31,7 +32,10 @@ Page({
     //   }
     // ],
     good: [],
-    standardArr: [0, 0]
+    standardArr: [0, 0],
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   cartData() { //购物车列表数据！
     let that = this 
@@ -41,9 +45,11 @@ Page({
         'cookie': wx.getStorageSync("sessionid")
       },
       success(res) {
-        that.setData({
-          cartData: res.data.data,
-        })
+        if (res.data.data != null) {
+          that.setData({
+            cartData: res.data.data,
+          })
+        }
         if (res.data.data.num <= 0) {
           that.setData({
             isCartShadeShow: false
@@ -52,7 +58,7 @@ Page({
       }
     })
   },
-  onLoad(options) { //监听页面加载
+  goodData() { //商品列表数据！
     let that = this
     wx.request({ //商品列表数据！
       url: app.globalData.api + '/goods/list',
@@ -65,7 +71,50 @@ Page({
         })
       }
     })
+  },
+  onLoad(options) { //监听页面加载
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+    let that = this
+    // that.cartData()
+    that.goodData()
+  },
+  onShow() {
+    let that = this
     that.cartData()
+  },
+  getUserInfo(e) {
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+    this.cartData()
+    this.goodData()
   },
   tab(e) {//分类切换
     let id = e.currentTarget.dataset.id;
@@ -220,7 +269,7 @@ Page({
     let num = that.data.totalNum
     if (that.data.cartData.num > 0) {
       wx.navigateTo({
-        url: '../pay/pay'
+        url: '/pages/pay/pay'
       })
     }
   },
